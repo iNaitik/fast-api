@@ -9,7 +9,7 @@ router = APIRouter(prefix="/users",
 
 
 @router.post("/", status_code= status.HTTP_201_CREATED,response_model=schemas.UserOut)
-async def create_user(user:schemas.UserCreate, db: Session = Depends(get_db), user_id = Depends(oauth2.get_current_user)):
+async def create_user(user:schemas.UserCreate, db: Session = Depends(get_db)):
 
     user.password = utils.hash_password(user.password) # hash the password using the bcrypt algorithm
     

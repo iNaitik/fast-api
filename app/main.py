@@ -44,7 +44,7 @@ app.include_router(votes.router) # include the votes router to define the routes
 
 @app.get("/")   
 async def root():
-    return {"message": "Journey to Google summer of code 2027"}
+    return {"message": "Bound mount"}
 
 
 

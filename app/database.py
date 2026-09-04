@@ -1,6 +1,12 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base
+# create_engine is a function that creates a new SQLAlchemy engine instance, 
+# which is used to manage the connection to the database and execute SQL queries.
+from sqlalchemy.orm import declarative_base 
+# declarative_base is a function that returns a new base class from which all 
+# mapped classes should inherit. It is used to define the database models in SQLAlchemy.
 from sqlalchemy.orm import sessionmaker
+# sessionmaker is a function that creates a new SQLAlchemy session factory,
+# which is used to create new database sessions that can be used to interact with the database.
 from app.config import settings
 
 # SQLALCHEMY_DATABASE_URL = "postgresql://<username>:<password>@<ip - address/host_name>:<port>/<database_name>"
@@ -16,12 +22,14 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 # create a base class for our models to inherit from
 Base = declarative_base()
 
+
 def get_db():
     db = SessionLocal() # create a new database session
     try:
         yield db # yield the database session to be used in the endpoint functions
     finally:
         db.close() # close the database session after the request is completed
+
 
 
 
