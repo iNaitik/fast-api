@@ -1,0 +1,17 @@
+name: Build and Deploy
+
+on: [push, pull_request] #for all braches
+  # push:
+  #   branches: 
+  #     - "main"  # provide the branch name you want to trigger the workflow on
+  # pull_request:
+  #   branches:
+  #     - "main"  # provide the branch name you want to trigger the workflow on
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code # checkout the code from the repository means pulling the code from the repository to the runner machine
+        uses: actions/checkout@v7
+      - name: say Hello
+        run: echo "Hello World"
