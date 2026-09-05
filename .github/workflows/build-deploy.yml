@@ -8,18 +8,19 @@ on: [push, pull_request] #for all braches
   #   branches:
   #     - "main"  # provide the branch name you want to trigger the workflow on
 jobs:
-  enivornment:
-    name: Testing
-  env:
-    DATABASE_HOSTNAME: ${{ secrets.DATABASE_HOSTNAME }}
-    DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
-    DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
-    DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
-    DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
-    SECRET_KEY: ${{ secrets.SECRET_KEY }}
-    ALGORITHM: ${{ secrets.ALGORITHM }}
-    ACCESS_TOKEN_EXPIRE_MINUTES: ${{ secrets.ACCESS_TOKEN_EXPIRE_MINUTES }}
   job1:
+    enivornment:
+      name: Testing
+    env:
+      DATABASE_HOSTNAME: ${{ secrets.DATABASE_HOSTNAME }}
+      DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
+      DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+      DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
+      DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      ALGORITHM: ${{ secrets.ALGORITHM }}
+      ACCESS_TOKEN_EXPIRE_MINUTES: ${{ secrets.ACCESS_TOKEN_EXPIRE_MINUTES }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code # checkout the code from the repository means pulling the code from the repository to the runner machine
@@ -36,6 +37,6 @@ jobs:
         run: 
           pip install pytest
           pytest
-      
+        
       
       
