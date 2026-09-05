@@ -9,7 +9,7 @@ on: [push, pull_request] #for all braches
   #     - "main"  # provide the branch name you want to trigger the workflow on
 jobs:
   job1:
-    enivornment:
+    environment:
       name: Testing
     env:
       DATABASE_HOSTNAME: ${{ secrets.DATABASE_HOSTNAME }}
@@ -34,7 +34,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Run tests
-        run: 
+        run: | 
           pip install pytest
           pytest
         
