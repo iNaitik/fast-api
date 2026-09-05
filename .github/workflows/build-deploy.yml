@@ -13,5 +13,12 @@ jobs:
     steps:
       - name: Checkout code # checkout the code from the repository means pulling the code from the repository to the runner machine
         uses: actions/checkout@v7
-      - name: say Hello
-        run: echo "Hello World"
+      - name: Setup Python
+        uses: actions/setup-python@v7.0.0
+        with:
+          python-version: 3.11
+      - name: Update pip
+        run: python -m pip install --upgrade pip
+      - name: Install dependencies
+        run: pip instal -r requirements.txt
+      
